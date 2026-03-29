@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/"
+title = "PrimePick.KA Storefront"
+version = "1.0.0"
+id = "artifacts/primepick"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 22497
+
+[services.development]
+run = "pnpm --filter @workspace/primepick run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/primepick", "run", "build" ]
+publicDir = "artifacts/primepick/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "22497"
+BASE_PATH = "/"

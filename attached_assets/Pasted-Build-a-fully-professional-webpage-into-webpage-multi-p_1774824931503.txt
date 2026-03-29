@@ -1,0 +1,129 @@
+Build a fully professional “webpage into webpage” (multi-page) ecommerce DEMO storefront for my brand, using ONLY vanilla HTML + CSS + JavaScript (no frameworks). It must feel like Shopify-level UI.
+
+BRAND (hard-code in config):
+- Name: PrimePick.KA
+- Tagline: Prime Deals. Prime Picks.
+- WhatsApp (wa.me): 923116909904
+- WhatsApp display: 0311-6909904
+- Email: muhamadkaifsiyal@gmail.com
+- Location text: Pakistan (Online Store)
+
+CRITICAL COPY RULES:
+- Do NOT use the sentence “One store for Beauty, Fashion, Tech & Accessories.” anywhere.
+- Do NOT list categories in the hero headline.
+- Do NOT mention Markaz/local/partner fulfillment anywhere.
+- Use neutral wording only: “Nationwide Delivery” and “Tracking shared after dispatch”.
+
+CORE REQUIREMENT (webpage into webpage):
+- Real multi-page site with these pages:
+  1) index.html (home)
+  2) catalog.html (category listing page)
+  3) product.html (product details page like Shopify)
+  4) contact.html
+  5) policies.html
+- Navigation must feel like a real store:
+  - Category pages via URL: catalog.html?cat=Beauty / Fashion / Tech / Accessories
+  - Sorting via URL: sort=price_low, sort=price_high, sort=popular, sort=new, sort=az
+  - Product detail via URL: product.html?id=PRODUCT_ID
+
+THEME SWITCHING (must be obvious):
+- Each category changes the whole theme (background gradient + accents + button colors):
+  - Beauty: pink/rose
+  - Fashion: purple/violet
+  - Tech: blue/cyan
+  - Accessories: green/emerald
+Implementation:
+- Use CSS variables: --brand, --brand2, --bg1, --bg2
+- On catalog.html when cat changes (chips or URL), update CSS variables instantly.
+- On product.html, apply the product’s own accent color (if defined) on top of category theme.
+
+ANIMATIONS (must be smooth and premium):
+- Page transition fade-out/fade-in when navigating between pages.
+- Ripple animation when clicking a product card.
+- Card hover lift animation.
+- Animated “Added to cart” toast notification.
+- Respect prefers-reduced-motion.
+
+PRODUCT INTERACTION (click to see details):
+- On catalog.html:
+  - Clicking a product card (or “View Details”) must animate (ripple) then open product.html?id=...
+- On product.html:
+  - Show a Shopify-like product layout with:
+    - big media (premium SVG placeholder)
+    - thumbnails (2–3)
+    - title, category, tags
+    - description + meta pills
+    - quantity stepper
+    - Add to Quote Cart button
+    - WhatsApp Price button (prefilled message)
+    - Related products (same category)
+
+QUOTE CART (GLOBAL, professional):
+- Slide-in drawer cart from right + overlay, available on ALL pages.
+- Persist cart in localStorage.
+- Buyer details form inside cart (name, city, business) persisted in localStorage.
+- Cart supports: +/− qty, remove, clear.
+- “Send Inquiry on WhatsApp” builds a clean message with:
+  - store name + tagline
+  - buyer details
+  - item list with qty (and selected variant if any)
+  - request final price, availability, delivery time, courier charges
+- “Email Inquiry” uses mailto with same message.
+
+CATALOG UI (must look premium):
+- Category chips
+- Search input
+- Sort dropdown
+- Product grid with consistent spacing like Shopify
+- Each product card includes:
+  - premium SVG placeholder image
+  - tag (Best Seller/New/Trending)
+  - short notes
+  - “Demo Price: PKR ___” (for sorting) and show a small note: “Demo prices for sorting only”
+  - Buttons: View Details, Quick Add
+
+DATA MODEL:
+Create data.js exporting window.STORE with:
+- store info
+- categories with theme colors (brand/brand2/bg1/bg2)
+- products array with ≥ 24 products total:
+  - Beauty: 7
+  - Fashion: 7
+  - Tech: 7
+  - Accessories: 3+
+Each product object:
+{ id, cat, name, tag, price (number), popular (number), isNew (bool), notes, desc, meta (array), accent (optional), variants (optional) }
+Variants:
+- Fashion: sizes (S/M/L/XL)
+- Beauty: pack sizes (30ml/60ml)
+- Tech: options (Type-C/Lightning, 20W/25W)
+If variants exist, show selectors on product page and include chosen variant in cart + WhatsApp message.
+
+NO EXTERNAL ASSETS:
+- No external images, fonts, or CDNs.
+- Use SVG placeholders and gradients for banners and product images.
+- Must run fully as static site.
+
+FILES (create exactly):
+- index.html
+- catalog.html
+- product.html
+- contact.html
+- policies.html
+- styles.css
+- data.js
+- app.js (shared: config, theme engine, cart, favorites optional, transitions, whatsapp/email helpers)
+- catalog.js (catalog page logic: filters/sort/url params/render)
+- product.js (product page logic: read id, render, variants, related)
+- README.md (run on Replit + publish on GitHub Pages)
+
+OUTPUT INSTRUCTIONS:
+- Print the FULL code for each file with headings:
+  --- index.html ---
+  (code)
+  --- catalog.html ---
+  (code)
+  ...etc
+- Provide complete working code (no placeholders like “add code here”).
+
+Now generate the complete project.

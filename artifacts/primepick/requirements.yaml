@@ -1,0 +1,11 @@
+packages:
+  "framer-motion": "For premium page transitions, hover lifts, and the slide-in quote cart"
+  "zustand": "For elegant global state management (cart, buyer details, toasts)"
+  "clsx": "Utility for constructing className strings conditionally"
+  "tailwind-merge": "Utility for merging tailwind classes safely"
+
+images: []
+
+notes:
+  - "Pure frontend application. All product data is stored locally in the source code."
+  - "The app relies on Wouter for routing and Zustand for state."
